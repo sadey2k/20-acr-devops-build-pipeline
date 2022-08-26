@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devopsdemo02-name
+  name: 20-acr-name
   labels:
-    app: devopsdemo02-app02
+    app: 20-acr-app01
 spec:
   replicas: 2
   selector:
     matchLabels: 
-    app: devopsdemo02-app02
+    app: 20-acr-app01
   template:
     metadata:
       labels:
-        app: devopsde2mo02-app0
+        app: 20-acr-app01
     spec:
       containers:
-      - name: devopsdemo02-container-name
-        image: acrdevopsdemo02/apps/devopsdemo02-app02:v2
+      - name: 20-arc-docker-container-name
+        image: acradedemo2.azurecr.io/app1/20-arc-docker-file:v1
         ports:
           containerPort: 80
         imagePullPolicy: Always
@@ -26,12 +26,12 @@ spec:
 apiVersion: v1
 kind: service
 metadata:
-  name: devopsdemo02-app02-loadbalancer-service
+  name: 20-arc-docker-loadbalancer-service
   labels:
-    app: devopsdemo02-app02
+    app: 20-arc-docker
 spec: 
   selector:
-    app: devopsdemo02-app02
+    app: 20-arc-docker
   type: LoadBalancer
   ports:
     - port: 80
