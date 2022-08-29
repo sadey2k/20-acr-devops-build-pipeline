@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: 20arcdockerfile 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 20arcdockerfile
+  template:
+    metadata:
+      labels:
+        app: 20arcdockerfile 
+    spec:
+      containers:
+        - name: 20arcdockerfile 
+          image: acradedemo2.azurecr.io/20arcdockerfile
+          ports:
+          - containerPort: 80
